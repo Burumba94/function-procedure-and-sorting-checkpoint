@@ -1,0 +1,18 @@
+ALGORITHM Tri_insertion
+
+VAR 
+    i, j, n, v : INTEGER
+    arr : ARRAY_OF INTEGER[n]
+
+BEGIN
+    FOR i FROM 0 TO n DO //la partie non encore triée
+        v := arr[i]; //l'élément frontière
+        j := i //le rang de l'élément frontière 
+        WHILE (arr[j-1] > v) DO //on travaille sur la partie déja triée
+            arr[j] := arr[j-1]; //on décale l'élément 
+            j := j-1; //on passe au rang précedent
+        END_WHILE
+        arr[j] := v //on recopie ai dans la place libérée
+    END_FOR
+
+END

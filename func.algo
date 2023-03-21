@@ -1,0 +1,48 @@
+ALGORITHM checkpoint_procedural
+
+VAR
+    Vector :	STRUCT
+                    x : FLOAT;
+                    y : FLOAT;
+                END_STRUCT
+    matrix_vector : ARRAY_OF FLOAT[M][N]; 
+
+    FUNCTION dot_product(v1,v2: Vector)
+        
+    VAR
+        ps: FLOAT
+    BEGIN
+        ps := (v1.x*v2.x) + (v1.y*v2.y)
+        RETURN ps ;
+    END
+
+BEGIN
+    //Matrice
+
+    /*
+        [
+            [v1,v2],
+            [v1,v2],
+            [v1,v2],
+            [v1,v2]
+        ]
+
+        => [0] dot_product([0][0],[0][1]) si = 0, write("Les deux vecteurs sont orthogonaux")
+    */
+
+    
+    i:= 0
+    FOR i FROM 0 TO M -1 STEP 1 DO
+        FOR j  FROM 0 TO N -1 STEP 1 DO 
+            IF ((matrix_vector[i][j]) dot_product([0][0],[0][1])) = 0 THEN
+                write ("les deux vecteurs sont orthogonaux")
+            ELSE_IF ((matrix_vector[i][j]) dot_product([0][0],[0][1])) <> 0
+                write ("les deux vecteurs ne sont pas orthogonaux")
+            END_IF
+        END_FOR
+        i := i + 1
+    END_FOR
+    
+
+    
+END
